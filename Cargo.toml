@@ -1,12 +1,22 @@
 [package]
-name = "complex-conway"
-version = "0.1.0"
+name = "quantum-conway"
+version = "0.2.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-piston_window = "0.131.0"
-rand = "0.8.5"
-rayon = "1.8.0"
-which = "5.0.0"
+# GPU compute and rendering
+wgpu = "24"
+winit = "0.30"
+pollster = "0.4"
+bytemuck = { version = "1.19", features = ["derive"] }
+
+# Random number generation (CPU-side initialization)
+rand = "0.8"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+[profile.release]
+opt-level = 3
+lto = true
